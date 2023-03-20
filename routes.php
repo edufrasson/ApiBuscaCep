@@ -9,6 +9,10 @@ switch ($url) {
         EnderecoController::getLogradouroByCep();
         break;
 
+    case '/cep/by-logradouro':
+        EnderecoController::getCepByLogradouro();
+        break;
+
     case '/logradouro/by-bairro':
         EnderecoController::getLogradouroByBairroAndCidade();
         break;
