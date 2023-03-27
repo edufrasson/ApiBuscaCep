@@ -10,7 +10,7 @@ class EnderecoController extends Controller
 {
 
     /*     
-        localhost:8000/endereco/by-cep
+        localhost:8000/endereco/by-cep?cep=17207495
     */
     public static function getLogradouroByCep(): void
     {
@@ -43,6 +43,9 @@ class EnderecoController extends Controller
             parent::getExceptionAsJSON($e);
         }
     }
+    /*     
+        localhost:8000/logradouro/by-bairro?bairro=Centro&id_cidade=4874
+    */
     public static function getLogradouroByBairroAndCidade(): void
     {
         try {
@@ -58,6 +61,9 @@ class EnderecoController extends Controller
             parent::getExceptionAsJSON($e);
         }
     }
+     /*     
+        localhost:8000/cidade/by-uf?uf=SP
+    */
     public static function getCidadesByUF(): void
     {
         try {
@@ -71,6 +77,10 @@ class EnderecoController extends Controller
             parent::getExceptionAsJSON($e);
         }
     }
+
+    /*     
+        localhost:8000/bairro/by-cidade?id_cidade=4874
+    */
     public static function getBairrosByIdCidade(): void
     {
         try {
