@@ -5,7 +5,7 @@ use FFI\Exception;
 
 abstract class Controller{
 
-    public static function setResponseAsJSON($data){
+    public static function getResponseAsJSON($data){
         header("Access-Control-Allow-Origin: *");  
         header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
         header('Access-Control-Allow-Headers: Origin, Content-Type, Accept');      
@@ -16,6 +16,22 @@ abstract class Controller{
         
         exit(json_encode($data));
     }
+
+     /* Retorna um valor como um objeto JSON*/
+     protected static function setResponseAsJSON($data, $request_status = true)
+     {
+         $response = array('response_data' => $data, 'response_successful' => $request_status);
+        
+         header("Access-Control-Allow-Origin: *");  
+         header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
+         header('Access-Control-Allow-Headers: Origin, Content-Type, Accept');      
+         header("Content-type: application/json; charset=utf-8");
+         header("Cache-Control: no-cache, must-revalidate");
+         header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
+         header("Pragma: public");
+ 
+         exit(json_encode($response));
+     }
 
     public static function getExceptionAsJSON(Exception $e){
         $exception = [
@@ -35,6 +51,7 @@ abstract class Controller{
         header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
         header("Pragma: public");      
         
+        exit(json_encode($exception));
     }
 
     public static function isGET() : void {
