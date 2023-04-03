@@ -21,7 +21,7 @@ class EnderecoController extends Controller
             $model = new EnderecoModel();
             $model->getLogradouroByCep($cep);
 
-            parent::setResponseAsJSON($model->rows);
+            parent::getResponseAsJSON($model->rows);
         } catch (Exception $e) {
             parent::getExceptionAsJSON($e);
         }
@@ -38,7 +38,7 @@ class EnderecoController extends Controller
             $model = new EnderecoModel();
             $model->getCepByLogradouro($logradouro);
 
-            parent::setResponseAsJSON($model->rows);
+            parent::getResponseAsJSON($model->rows);
         } catch (Exception $e) {
             parent::getExceptionAsJSON($e);
         }
@@ -56,7 +56,7 @@ class EnderecoController extends Controller
             $model = new EnderecoModel();
             $model->getLograoduroByBairroAndCidade($bairro, $id_cidade);
 
-            parent::setResponseAsJSON($model->rows);
+            parent::getResponseAsJSON($model->rows);
         } catch (Exception $e) {
             parent::getExceptionAsJSON($e);
         }
@@ -72,7 +72,7 @@ class EnderecoController extends Controller
             $model = new CidadeModel();
             $model->getCidadesByUF($uf);
 
-            parent::setResponseAsJSON($model->rows);
+            parent::getResponseAsJSON($model->rows);
         } catch (Exception $e) {
             parent::getExceptionAsJSON($e);
         }
@@ -89,7 +89,7 @@ class EnderecoController extends Controller
             $model = new EnderecoModel();
             $model->getBairrosByIdCidade($cidade);
 
-            parent::setResponseAsJSON($model->rows);
+            parent::getResponseAsJSON($model->rows);
         } catch (Exception $e) {
             parent::getExceptionAsJSON($e);
         }
