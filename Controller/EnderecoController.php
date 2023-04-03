@@ -28,7 +28,7 @@ class EnderecoController extends Controller
     }
 
     /*     
-        localhost:8000/cep/by-logradouro
+        http://localhost:8000/cep/by-logradouro?logradouro=Rua%20Vinte%20e%20Quatro%20de%20Fevereiro
     */
     public static function getCepByLogradouro(): void
     {
